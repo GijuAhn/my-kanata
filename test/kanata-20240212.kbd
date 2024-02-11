@@ -1,0 +1,63 @@
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet comp rctl
+)
+
+(deflayer base
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  lctl a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           @spfn          ralt rmet comp rctl
+)
+
+(deflayer spacefnlayer
+  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
+  _    _    _    esc  _    tab  ins  pgup up   pgdn @prt @lwd @rwd del
+  _    _    _    _    _    grv  home left down rght end  @wrd _
+  _    _    _    _    _    pause spc mute vold volu comp _
+  _    _    _              _              _    caps scrlck    _
+)
+
+;; 원래 rshift에 mouse action layer 할당 예정이었으나,
+;; 오른쪽 shift키에 layer @ 할당 시 shift 본래 역할이 불가능해져서 보류.
+;; 예를 들어, [lctrl + space + rshft + t] 를 눌렀을 때
+;; 위 경우 chrome 에서 왼쪽 탭으로 이동해야 하나, rshift가 layer 전환으로 동작하여 의도한 대로 작동하지 않음.
+
+(deflayer rshiftfnlayer
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _    _
+)
+
+(defvar
+  tap-timeout   100
+  hold-timeout  160
+  tt $tap-timeout
+  ht $hold-timeout
+)
+
+(defalias
+  spacefn (layer-while-held spacefnlayer)
+  rshiftfn (layer-while-held rshiftfnlayer)
+)
+
+(defalias
+  spfn (tap-hold $tt $ht spc @spacefn)
+  rsfn (tap-hold $tt $ht rsft @rshiftfn)
+)
+
+(defalias
+  cpy C-ins
+  pst S-ins
+  lwd M-C-left
+  rwd M-C-rght
+  wrd (macro C-left C-S-rght)
+  snt (macro home S-end)
+  prt M-S-s
+)
