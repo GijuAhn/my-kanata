@@ -4,6 +4,8 @@
 
 ### **Based on : jtroo's [kanata](https://github.com/jtroo/kanata) project**
 
+### **Releases : [kanata releases](https://github.com/jtroo/kanata/releases)**
+
 ### **Config sample : [kanata.kbd](https://github.com/jtroo/kanata/blob/main/cfg_samples/kanata.kbd)**
 
 ### **Key list : [mod.rs](https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs)**
