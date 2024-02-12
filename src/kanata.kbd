@@ -3,7 +3,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet comp rctl
+  lctl lmet lalt           spc            ralt rmet menu rctl
 )
 
 (deflayer base
@@ -11,20 +11,20 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   lctl a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           @spfn          ralt rmet comp rctl
+  lctl lmet lalt           @spfn          ralt rmet menu rctl
 )
 
 (deflayer spacefnlayer
   _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
   _    _    _    esc  _    tab  ins  pgup up   pgdn @prt @lwd @rwd del
   _    _    _    _    _    grv  home left down rght end  @wrd _
-  _    _    _    _    _    pause spc mute vold volu comp _
-  _    _    _              _              _    caps scrlck    _
+  _    _    _    _    _    brk  spc  mute vold volu menu _
+  _    _    _              _              _    caps slck _
 )
 
 (defvar
-  tap-timeout   100
-  hold-timeout  180
+  tap-timeout   150
+  hold-timeout  150
   tt $tap-timeout
   ht $hold-timeout
 )
