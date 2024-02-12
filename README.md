@@ -2,7 +2,11 @@
 
 > **Improve keyboard comfort and usability with advanced customization**
 
-### **Based on : jtroo's [kanata](https://github.com/jtroo/kanata)**
+### **Based on : jtroo's [kanata](https://github.com/jtroo/kanata) project**
+
+### **Config sample : [kanata.kbd](https://github.com/jtroo/kanata/blob/main/cfg_samples/kanata.kbd)**
+
+### **Key list : [mod.rs](https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs)**
 
 # layout
 
