@@ -15,6 +15,7 @@
 ## Base Layer
 
 top-left red key : Esc / Grave
+
 yellow highlight key : KR keyboard
 
 ![spacefn](assets/keyboard-layout-base-update1.png)
