@@ -7,39 +7,39 @@
 )
 
 (deflayer base
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  lctl a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc 
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \ 
+  lctl a    s    d    f    g    h    j    k    l    ;    '    ret 
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft 
   lctl lmet lalt           @spfn          ralt rmet menu rctl
 )
 
 (deflayer spacefnlayer
-  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
-  _    _    bspc esc  del  tab  ins  pgup up   pgdn @prt @lwd @rwd del
-  _    _    _    _    _    grv  home left down rght end  @wrd _
-  _    _    _    _    _    brk  spc  mute vold volu menu _
-  _    _    _              _              _    caps slck _
+  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc 
+  _    _    bspc esc  del  tab  ins  pgup up   pgdn @prt @lwd @rwd del 
+  _    _    _    _    _    grv  home left down rght end  @wrd _  
+  _    _    _    _    _    brk  spc  mute vold volu menu _   
+  _    _    _              _              _    caps slck _   
 )
 
 (defvar
   tap-timeout   180
   hold-timeout  180
-  tt $tap-timeout
-  ht $hold-timeout
+  tt            $tap-timeout
+  ht            $hold-timeout
 )
 
 (defalias
-  spacefn (layer-while-held spacefnlayer)
-  spfn (tap-hold $tt $ht spc @spacefn)
+  spacefn       (layer-while-held spacefnlayer)
+  spfn          (tap-hold $tt $ht spc @spacefn)
 )
 
 (defalias
-  cpy C-ins
-  pst S-ins
-  lwd M-C-left
-  rwd M-C-rght
-  wrd (macro C-left C-S-rght)
-  snt (macro home S-end)
-  prt M-S-s
+  cpy           C-ins
+  pst           S-ins
+  lwd           M-C-left
+  rwd           M-C-rght
+  wrd           (macro C-left C-S-rght)
+  snt           (macro home S-end)
+  prt           M-S-s
 )
