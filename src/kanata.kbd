@@ -16,15 +16,15 @@
 
 (deflayer spacefnlayer
   _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
-  _    _    _    esc  _    tab  ins  pgup up   pgdn @prt @lwd @rwd del
+  _    _    bspc esc  del  tab  ins  pgup up   pgdn @prt @lwd @rwd del
   _    _    _    _    _    grv  home left down rght end  @wrd _
   _    _    _    _    _    brk  spc  mute vold volu menu _
   _    _    _              _              _    caps slck _
 )
 
 (defvar
-  tap-timeout   150
-  hold-timeout  150
+  tap-timeout   180
+  hold-timeout  180
   tt $tap-timeout
   ht $hold-timeout
 )
