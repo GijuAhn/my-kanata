@@ -16,7 +16,7 @@
 
 (deflayer spacefnlayer
   _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc 
-  _    _    bspc esc  del  tab  ins  pgup up   pgdn @prt @lwd @rwd del 
+  _    _    del  esc  bspc tab  ins  pgup up   pgdn @prt @lwd @rwd del 
   _    _    _    _    _    grv  home left down rght end  @wrd _  
   _    _    _    _    _    brk  spc  mute vold volu menu _   
   _    _    _              _              _    caps slck _   
