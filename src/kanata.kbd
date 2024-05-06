@@ -23,8 +23,8 @@
 )
 
 (defvar
-  tap-timeout   180
-  hold-timeout  180
+  tap-timeout   170
+  hold-timeout  170
   tt            $tap-timeout
   ht            $hold-timeout
 )
