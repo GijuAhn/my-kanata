@@ -10,7 +10,7 @@
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc 
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \ 
   lctl a    s    d    f    g    h    j    k    l    ;    '    ret 
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft 
+  lsft z    x    c    v    b    @num m    ,    .    /    rsft 
   lctl lmet lalt           @spfn          ralt rmet menu rctl
 )
 
@@ -22,6 +22,14 @@
   _    _    _              _              _    caps slck _   
 )
 
+(deflayer numpadlayer
+  _    _    _    _    _    _    _    kp7  kp8  kp9  kp0  kp-  _    _   
+  _    _    _    _    _    _    _    kp4  kp5  kp6  kp+  _    _    _ 
+  _    _    _    _    _    _    _    kp1  kp2  kp3  kp*  _    _  
+  _    _    _    _    _    _    _    kp0  _    _    kp/  _   
+  _    _    _              _              _    _    _    _   
+)
+
 (defvar
   tap-timeout   170
   hold-timeout  170
@@ -31,7 +39,9 @@
 
 (defalias
   spacefn       (layer-while-held spacefnlayer)
+  numpad        (layer-switch numpadlayer)
   spfn          (tap-hold $tt $ht spc @spacefn)
+  num           (tap-hold $tt $ht n   @numpad)
 )
 
 (defalias
