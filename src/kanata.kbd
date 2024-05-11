@@ -39,7 +39,7 @@
 
 (defalias
   spacefn       (layer-while-held spacefnlayer)
-  numpad        (layer-switch numpadlayer)
+  numpad        (layer-while-held numpadlayer)
   spfn          (tap-hold $tt $ht spc @spacefn)
   num           (tap-hold $tt $ht n   @numpad)
 )
