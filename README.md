@@ -59,14 +59,8 @@ blank keys are transparent
 
 ## Mouse Action Layer
 
-원래 rshift에 mouse action layer 할당 예정이었으나,
+2
 
-오른쪽 shift키에 layer toggle 할당 시 shift 본래 역할이 불가능해져서 보류.
+## Numpad Layer
 
-예를 들어, *__[ lctrl + space + rshft + t ]__* 를 눌렀을 때
-
-위 경우 chrome 에서 왼쪽 탭으로 이동해야 하지만
-
-rshift가 layer 전환으로 동작하여 의도한 대로 작동하지 않음.
-
-TBD.
+3
