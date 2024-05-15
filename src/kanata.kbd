@@ -10,8 +10,8 @@
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc 
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \ 
   lctl a    s    d    f    g    h    j    k    l    ;    '    ret 
-  lsft z    x    c    v    b    @num m    ,    .    /    rsft 
-  lctl lmet lalt           @spfn          ralt rmet menu rctl
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft 
+  lctl lmet @rat           @spfn          @num rmet menu rctl
 )
 
 (deflayer spacefnlayer
@@ -30,6 +30,14 @@
   _    _    _              _              _    _    _    _   
 )
 
+(deflayer mouselayer
+  _    _    _    _    _    _    _    _    mmid _    _    _    _    _   
+  _    _    _    _    _    _    _    mlft @ma↑ mrgt _    _    _    _ 
+  _    _    _    _    _    _    mbck @ma← @ma↓ @ma→ mfwd _    _  
+  _    _    _    _    _    _    @mwu @mwd @mwl @mwr _    _   
+  _    _    _              _              _    _    _    _   
+)
+
 (defvar
   tap-timeout   160
   hold-timeout  160
@@ -40,8 +48,10 @@
 (defalias
   spacefn       (layer-while-held spacefnlayer)
   numpad        (layer-while-held numpadlayer)
+  mouse         (layer-while-held mouselayer)
   spfn          (tap-hold $tt $ht spc @spacefn)
-  num           (tap-hold $tt $ht n   @numpad)
+  num           (tap-hold $tt $ht ralt @numpad)
+  rat           (tap-hold $tt $ht lalt @mouse)
 )
 
 (defalias
@@ -52,4 +62,15 @@
   wrd           (macro C-left C-S-rght)
   snt           (macro home S-end)
   prt           M-S-s
+)
+
+(defalias
+  mwu (mwheel-up 50 120)
+  mwd (mwheel-down 50 120)
+  mwl (mwheel-left 50 120)
+  mwr (mwheel-right 50 120)
+  ma↑ (movemouse-accel-up 1 1000 1 5)
+  ma← (movemouse-accel-left 1 1000 1 5)
+  ma↓ (movemouse-accel-down 1 1000 1 5)
+  ma→ (movemouse-accel-right 1 1000 1 5)
 )

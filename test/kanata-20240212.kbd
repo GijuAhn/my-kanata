@@ -27,7 +27,7 @@
 ;; 예를 들어, [lctrl + space + rshft + t] 를 눌렀을 때
 ;; 위 경우 chrome 에서 왼쪽 탭으로 이동해야 하나, rshift가 layer 전환으로 동작하여 의도한 대로 작동하지 않음.
 
-(deflayer rshiftfnlayer
+(deflayer empty
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
