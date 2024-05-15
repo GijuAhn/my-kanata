@@ -44,7 +44,7 @@
 
 (defalias
   spacefn (layer-while-held spacefnlayer)
-  rshiftfn (layer-while-held rshiftfnlayer)
+  rshiftfn (layer-while-held empty)
 )
 
 (defalias

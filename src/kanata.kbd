@@ -11,7 +11,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \ 
   lctl a    s    d    f    g    h    j    k    l    ;    '    ret 
   lsft z    x    c    v    b    n    m    ,    .    /    rsft 
-  lctl lmet @rat           @spfn          @num rmet menu rctl
+  @num lmet @rat           @spfn          ralt rmet menu rctl
 )
 
 (deflayer spacefnlayer
@@ -50,7 +50,7 @@
   numpad        (layer-while-held numpadlayer)
   mouse         (layer-while-held mouselayer)
   spfn          (tap-hold $tt $ht spc @spacefn)
-  num           (tap-hold $tt $ht ralt @numpad)
+  num           (tap-hold $tt $ht lctl @numpad)
   rat           (tap-hold $tt $ht lalt @mouse)
 )
 
