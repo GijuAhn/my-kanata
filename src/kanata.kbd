@@ -7,7 +7,7 @@
 )
 
 (deflayer base
-  grv  1    @rat @num 4    5    6    7    8    9    0    -    =    bspc 
+  grv  1    2    @num @rat 5    6    7    8    9    0    -    =    bspc 
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \ 
   lctl a    s    d    f    g    h    j    k    l    ;    '    ret 
   lsft z    x    c    v    b    n    m    ,    .    /    rsft 
@@ -34,13 +34,13 @@
   _    _    _    _    _    _    _    _    mmid _    _    _    _    _   
   _    _    _    _    _    _    _    mlft @ma↑ mrgt _    _    _    _ 
   _    _    _    _    _    _    mbck @ma← @ma↓ @ma→ mfwd _    _  
-  _    _    _    _    _    _    @mwu @mwd @mwl @mwr _    _   
+  _    _    _    _    _    _    @mwu @mwd @mwl @mwr @sm  _   
   _    _    _              _              _    _    _    _   
 )
 
 (defvar
-  tap-timeout   160
-  hold-timeout  160
+  tap-timeout   150
+  hold-timeout  150
   tt            $tap-timeout
   ht            $hold-timeout
 )
@@ -51,7 +51,7 @@
   mouse         (layer-while-held mouselayer)
   spfn          (tap-hold $tt $ht spc @spacefn)
   num           (tap-hold $tt $ht 3 @numpad)
-  rat           (tap-hold $tt $ht 2 @mouse)
+  rat           (tap-hold $tt $ht 4 @mouse)
 )
 
 (defalias
@@ -65,12 +65,13 @@
 )
 
 (defalias
-  mwu (mwheel-up 50 120)
-  mwd (mwheel-down 50 120)
-  mwl (mwheel-left 50 120)
-  mwr (mwheel-right 50 120)
-  ma↑ (movemouse-accel-up 1 1000 1 5)
-  ma← (movemouse-accel-left 1 1000 1 5)
-  ma↓ (movemouse-accel-down 1 1000 1 5)
-  ma→ (movemouse-accel-right 1 1000 1 5)
+  mwu           (mwheel-up 50 120)
+  mwd           (mwheel-down 50 120)
+  mwl           (mwheel-left 50 120)
+  mwr           (mwheel-right 50 120)
+  ma↑           (movemouse-accel-up 1 1000 1 5)
+  ma←           (movemouse-accel-left 1 1000 1 5)
+  ma↓           (movemouse-accel-down 1 1000 1 5)
+  ma→           (movemouse-accel-right 1 1000 1 5)
+  sm            (setmouse 32228 32228)
 )

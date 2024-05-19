@@ -55,12 +55,11 @@ blank keys are transparent
 | /         | context menu (?)                |
 
 
+## Numpad Layer
+
+3
 
 
 ## Mouse Action Layer
 
-2
-
-## Numpad Layer
-
-3
+4
