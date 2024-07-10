@@ -7,7 +7,7 @@
 )
 
 (deflayer base
-  grv  1    2    @num @rat 5    6    7    8    9    0    -    =    bspc 
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc 
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \ 
   lctl a    s    d    f    g    h    j    k    l    ;    '    ret 
   lsft z    x    c    v    b    n    m    ,    .    /    rsft 
@@ -17,7 +17,7 @@
 (deflayer spacefnlayer
   _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc 
   _    _    del  esc  bspc tab  ins  pgup up   pgdn @prt @lwd @rwd del 
-  _    _    _    _    _    grv  home left down rght end  @wrd _  
+  _    _    _    @num @rat grv  home left down rght end  @wrd _  
   _    _    _    _    _    brk  spc  mute vold volu menu _   
   _    _    _              _              _    caps slck _   
 )
@@ -26,7 +26,7 @@
   _    _    _    _    _    _    _    kp7  kp8  kp9  kp0  kp-  _    _   
   _    _    _    _    _    _    _    kp4  kp5  kp6  kp+  _    _    _ 
   _    _    _    _    _    _    _    kp1  kp2  kp3  kp*  _    _  
-  _    _    _    _    _    _    _    kp0  _    _    kp/  _   
+  _    _    _    _    _    _    _    kp0  ,    .    kp/  _   
   _    _    _              _              _    _    _    _   
 )
 
@@ -50,8 +50,8 @@
   numpad        (layer-while-held numpadlayer)
   mouse         (layer-while-held mouselayer)
   spfn          (tap-hold $tt $ht spc @spacefn)
-  num           (tap-hold $tt $ht 3 @numpad)
-  rat           (tap-hold $tt $ht 4 @mouse)
+  num           (tap-hold $tt $ht _ @numpad)
+  rat           (tap-hold $tt $ht _ @mouse)
 )
 
 (defalias

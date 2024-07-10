@@ -57,9 +57,8 @@ blank keys are transparent
 
 ## Numpad Layer
 
-3
-
+SpaceFn-D | Digit
 
 ## Mouse Action Layer
 
-4
+SpaceFn-F | Func(Mouse)
