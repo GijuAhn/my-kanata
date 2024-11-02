@@ -1,5 +1,5 @@
 (defcfg
-  process-unmapped-keys yes
+  process-unmapped-keys no
 )
 
 (defsrc
