@@ -62,3 +62,14 @@ SpaceFn-D | Digit
 ## Mouse Action Layer
 
 SpaceFn-F | Func(Mouse)
+
+## Combos
+| key   | action |
+| (d f) | (      |
+| (j k) | )      |
+| (s d) | {      |
+| (k l) | }      |
+| (s f) | [      |
+| (j l) | ]      |
+| (e f) | - _    |
+| (j i) | = +    |

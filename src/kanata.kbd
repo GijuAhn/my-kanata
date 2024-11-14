@@ -1,5 +1,6 @@
 (defcfg
-  process-unmapped-keys no
+  process-unmapped-keys no 
+  concurrent-tap-hold yes
 )
 
 (defsrc
@@ -78,4 +79,15 @@
   ma↓           (movemouse-accel-down 1 1000 1 5)
   ma→           (movemouse-accel-right 1 1000 1 5)
   sm            (setmouse 32228 32228)
+)
+
+(defchordsv2-experimental
+  (d f)  S-9    40 all-released (numpadlayer mouselayer)
+  (j k)  S-0    40 all-released (numpadlayer mouselayer)
+  (s d)  S-[    40 all-released (numpadlayer mouselayer)
+  (k l)  S-]    40 all-released (numpadlayer mouselayer)
+  (s f)  [      40 all-released (numpadlayer mouselayer)
+  (j l)  ]      40 all-released (numpadlayer mouselayer)
+  (e f)  -      40 all-released (numpadlayer mouselayer)
+  (j i)  =      40 all-released (numpadlayer mouselayer)
 )
