@@ -65,6 +65,7 @@ SpaceFn-F | Func(Mouse)
 
 ## Combos
 | key   | action |
+| ----- | ------ |
 | (d f) | (      |
 | (j k) | )      |
 | (s d) | {      |
