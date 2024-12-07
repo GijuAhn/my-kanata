@@ -44,8 +44,10 @@
 )
 
 (defvar
+  combo-timeout 30
   tap-timeout   150
   hold-timeout  150
+  ct            $combo-timeout
   tt            $tap-timeout
   ht            $hold-timeout
 )
@@ -82,12 +84,12 @@
 )
 
 (defchordsv2-experimental
-  (d f)  S-9    40 all-released (numpadlayer mouselayer)
-  (j k)  S-0    40 all-released (numpadlayer mouselayer)
-  (s d)  S-[    40 all-released (numpadlayer mouselayer)
-  (k l)  S-]    40 all-released (numpadlayer mouselayer)
-  (s f)  [      40 all-released (numpadlayer mouselayer)
-  (j l)  ]      40 all-released (numpadlayer mouselayer)
-  (e f)  -      40 all-released (numpadlayer mouselayer)
-  (j i)  =      40 all-released (numpadlayer mouselayer)
+  (d f)  S-9    $ct all-released (numpadlayer mouselayer)
+  (j k)  S-0    $ct all-released (numpadlayer mouselayer)
+  (s d)  S-[    $ct all-released (numpadlayer mouselayer)
+  (k l)  S-]    $ct all-released (numpadlayer mouselayer)
+  (s f)  [      $ct all-released (numpadlayer mouselayer)
+  (j l)  ]      $ct all-released (numpadlayer mouselayer)
+  (e f)  -      $ct all-released (numpadlayer mouselayer)
+  (j i)  =      $ct all-released (numpadlayer mouselayer)
 )
