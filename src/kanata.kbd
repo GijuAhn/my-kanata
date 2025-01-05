@@ -20,10 +20,10 @@
 )
 
 (deflayer spacefnlayer
-  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc 
-  _    _    del  esc  bspc tab  ins  pgup up   pgdn @prt @lwd @rwd del 
-  _    _    _    @num @rat grv  home left down rght end  @wrd _  
-  _    _    _    _    _    brk  spc  mute vold volu menu _   
+  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _   
+  _    @qck del  esc  bspc tab  ins  pgup up   pgdn @prt @lwd @rwd del 
+  _    =    -    [    ]    grv  home left down rght end  @wrd _  
+  _    _    _    @num @rat brk  spc  mute vold volu menu _   
   _    _    _              _              _    caps slck _   
 )
 
@@ -66,6 +66,7 @@
   pst           S-ins
   lwd           M-C-left
   rwd           M-C-rght
+  qck           M-tab
   wrd           (macro C-left C-S-rght)
   snt           (macro home S-end)
   prt           M-S-s
@@ -83,13 +84,13 @@
   sm            (setmouse 32228 32228)
 )
 
-(defchordsv2
-  (d f)  S-9    $ct all-released (numpadlayer mouselayer)
-  (j k)  S-0    $ct all-released (numpadlayer mouselayer)
-  (s d)  S-[    $ct all-released (numpadlayer mouselayer)
-  (k l)  S-]    $ct all-released (numpadlayer mouselayer)
-  (s f)  [      $ct all-released (numpadlayer mouselayer)
-  (j l)  ]      $ct all-released (numpadlayer mouselayer)
-  (e f)  -      $ct all-released (numpadlayer mouselayer)
-  (j i)  =      $ct all-released (numpadlayer mouselayer)
-)
+;; (defchordsv2
+;;   (d f)  S-9    $ct all-released (numpadlayer mouselayer)
+;;   (j k)  S-0    $ct all-released (numpadlayer mouselayer)
+;;   (s d)  S-[    $ct all-released (numpadlayer mouselayer)
+;;   (k l)  S-]    $ct all-released (numpadlayer mouselayer)
+;;   (s f)  [      $ct all-released (numpadlayer mouselayer)
+;;   (j l)  ]      $ct all-released (numpadlayer mouselayer)
+;;   (e f)  -      $ct all-released (numpadlayer mouselayer)
+;;   (j i)  =      $ct all-released (numpadlayer mouselayer)
+;; )
