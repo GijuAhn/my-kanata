@@ -44,7 +44,7 @@
 )
 
 (defvar
-  combo-timeout 30
+  combo-timeout 25
   tap-timeout   150
   hold-timeout  150
   ct            $combo-timeout
@@ -83,7 +83,7 @@
   sm            (setmouse 32228 32228)
 )
 
-(defchordsv2-experimental
+(defchordsv2
   (d f)  S-9    $ct all-released (numpadlayer mouselayer)
   (j k)  S-0    $ct all-released (numpadlayer mouselayer)
   (s d)  S-[    $ct all-released (numpadlayer mouselayer)
