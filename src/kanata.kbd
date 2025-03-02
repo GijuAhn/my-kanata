@@ -12,39 +12,39 @@
 )
 
 (deflayer base
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc 
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \ 
-  lctl a    s    d    f    g    h    j    k    l    ;    '    ret 
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft 
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  lctl a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           @spfn          ralt rmet menu rctl
 )
 
 (deflayer spacefnlayer
-  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _   
-  _    @qck del  esc  bspc tab  ins  pgup up   pgdn @prt @lwd @rwd del 
-  _    =    -    [    ]    grv  home left down rght end  @wrd _  
-  _    _    _    @num @rat brk  spc  mute vold volu menu _   
-  _    _    _              _              _    caps slck _   
+  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
+  _    @qck del  esc  bspc tab  ins  pgup up   pgdn @prt @lwd @rwd del
+  _    =    -    [    ]    grv  home left down rght end  @wrd _
+  _    _    _    @num @rat brk  spc  mute vold volu menu _
+  _    _    _              _              _    caps slck _
 )
 
 (deflayer numpadlayer
-  _    _    _    _    _    _    _    kp7  kp8  kp9  kp0  kp-  _    _   
-  _    _    _    _    _    _    _    kp4  kp5  kp6  kp+  _    _    _ 
-  _    _    _    _    _    _    _    kp1  kp2  kp3  kp*  _    _  
-  _    _    _    _    _    _    _    kp0  ,    .    kp/  _   
-  _    _    _              _              _    _    _    _   
+  _    _    _    _    _    _    _    kp7  kp8  kp9  kp0  kp-  _    _
+  _    _    _    _    _    _    _    kp4  kp5  kp6  kp+  _    _    _
+  _    _    _    _    _    _    _    kp1  kp2  kp3  kp*  _    _
+  _    _    _    _    _    _    _    kp0  ,    .    kp/  _
+  _    _    _              _              _    _    _    _
 )
 
 (deflayer mouselayer
-  _    _    _    _    _    _    _    _    mmid _    _    _    _    _   
-  _    _    _    _    _    _    _    mlft @ma↑ mrgt _    _    _    _ 
-  _    _    _    _    _    _    mbck @ma← @ma↓ @ma→ mfwd _    _  
-  _    _    _    _    _    _    @mwu @mwd @mwl @mwr @sm  _   
-  _    _    _              _              _    _    _    _   
+  _    _    _    _    _    _    _    _    mmid _    _    _    _    _
+  _    _    _    _    _    _    _    mlft @ma↑ mrgt _    _    _    _
+  _    _    _    _    _    _    mbck @ma← @ma↓ @ma→ mfwd _    _
+  _    _    _    _    _    _    @mwu @mwd @mwl @mwr @sm  _
+  _    _    _              _              _    _    _    _
 )
 
 (defvar
-  combo-timeout 25
+  combo-timeout 20
   tap-timeout   150
   hold-timeout  150
   ct            $combo-timeout
