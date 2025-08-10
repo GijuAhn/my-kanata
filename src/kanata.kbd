@@ -1,96 +1,94 @@
-(defcfg
-  process-unmapped-keys no 
-  concurrent-tap-hold yes
-)
+(defcfg process-unmapped-keys no)
 
 (defsrc
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet menu rctl
+     grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+     tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+     caps a    s    d    f    g    h    j    k    l    ;    '    ret
+     lsft z    x    c    v    b    n    m    ,    .    /    rsft      up
+     lctl lmet lalt           spc            ralt rmet rctl      left down rght
 )
 
 (deflayer base
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  lctl a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           @spfn          ralt rmet menu rctl
+     grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+     tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+     lctl a    s    d    f    g    h    j    k    l    ;    '    ret
+     lsft z    x    c    v    b    n    m    ,    .    /    rsft      up
+     lctl lmet lalt           @spfn          ralt rmet @pass     left down rght
 )
 
 (deflayer spacefnlayer
-  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
-  _    @qck del  esc  bspc tab  ins  pgup up   pgdn @prt @lwd @rwd del
-  _    =    -    [    ]    grv  home left down rght end  @wrd _
-  _    _    _    @num @rat brk  spc  mute vold volu menu _
-  _    _    _              _              _    caps slck _
+     _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
+     _    @prt del  esc  bspc tab  ins  pgup up   pgdn @qck @ltb @rtb del
+     _    =    -    [    ]    grv  home left down rght end  @wrd _
+     _    @lck mrgt mmid mlft brk  spc  mute vold volu menu _         @ma↑
+     _    _    _              _              _    _    @pass     @ma← @ma↓ @ma→
 )
 
 (deflayer numpadlayer
-  _    _    _    _    _    _    _    kp7  kp8  kp9  kp0  kp-  _    _
-  _    _    _    _    _    _    _    kp4  kp5  kp6  kp+  _    _    _
-  _    _    _    _    _    _    _    kp1  kp2  kp3  kp*  _    _
-  _    _    _    _    _    _    _    kp0  ,    .    kp/  _
-  _    _    _              _              _    _    _    _
+     _    _    _    _    _    _    _    kp7  kp8  kp9  kp0  kp-  _    _
+     _    _    _    _    _    _    _    kp4  kp5  kp6  kp+  _    _    _
+     _    _    _    _    _    _    _    kp1  kp2  kp3  kp*  _    _
+     _    _    _    _    _    _    _    kp0  ,    .    kp/  _         _
+     _    _    _              _              _    _    @pass     _    _    _
 )
 
 (deflayer mouselayer
-  _    _    _    _    _    _    _    _    mmid _    _    _    _    _
-  _    _    _    _    _    _    _    mlft @ma↑ mrgt _    _    _    _
-  _    _    _    _    _    _    mbck @ma← @ma↓ @ma→ mfwd _    _
-  _    _    _    _    _    _    @mwu @mwd @mwl @mwr @sm  _
-  _    _    _              _              _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    mwd  mwu  _
+     _    _    _    _    _    _    _    _    _    mfwd mlft @ma↑ mrgt mmid
+     _    _    _    _    _    _    _    _    _    mbck @ma← @ma↓ @ma→
+     _    _    _    _    _    _    _    _    mwl  mwr  @sm  _         _
+     _    _    _              _              _    _    @pass     _    _    _
+)
+
+(deflayer emptylayer
+     _    _    _    _    _    _    _    _    _    _    _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    _         _
+     _    _    _              _              _    _    _         _    _    _
 )
 
 (defvar
-  combo-timeout 20
-  tap-timeout   150
-  hold-timeout  150
-  ct            $combo-timeout
-  tt            $tap-timeout
-  ht            $hold-timeout
+     tap-repress-timeout      150
+     hold-timeout             150
+     tt                       $tap-repress-timeout
+     ht                       $hold-timeout
 )
 
 (defalias
-  spacefn       (layer-while-held spacefnlayer)
-  numpad        (layer-while-held numpadlayer)
-  mouse         (layer-while-held mouselayer)
-  spfn          (tap-hold $tt $ht spc @spacefn)
-  num           (tap-hold $tt $ht _ @numpad)
-  rat           (tap-hold $tt $ht _ @mouse)
+     spfn           (tap-hold $tt $ht _ (layer-while-held spacefnlayer))
+     num            (tap-hold $tt $ht _ (layer-while-held numpadlayer))
+     mos            (tap-hold $tt $ht _ (layer-while-held mouselayer))
+     pass           (tap-hold $tt $ht _ (layer-while-held emptylayer))
 )
 
 (defalias
-  cpy           C-ins
-  pst           S-ins
-  lwd           M-C-left
-  rwd           M-C-rght
-  qck           M-tab
-  wrd           (macro C-left C-S-rght)
-  snt           (macro home S-end)
-  prt           M-S-s
+     cpy            C-ins
+     pst            S-ins
+     lwd            M-C-left
+     rwd            M-C-rght
+     ltb            C-S-tab
+     rtb            C-tab
+     qck            M-tab
+     prt            M-S-s
+     wrd            (macro C-left C-S-rght)
+     row            (macro home S-end)
+     qot            (fork @wrd @row (lsft rsft))
+     lck            (fork caps slck (lsft rsft))
 )
 
 (defalias
-  mwu           (mwheel-up 50 120)
-  mwd           (mwheel-down 50 120)
-  mwl           (mwheel-left 50 120)
-  mwr           (mwheel-right 50 120)
-  ma↑           (movemouse-accel-up 1 1000 1 5)
-  ma←           (movemouse-accel-left 1 1000 1 5)
-  ma↓           (movemouse-accel-down 1 1000 1 5)
-  ma→           (movemouse-accel-right 1 1000 1 5)
-  sm            (setmouse 32228 32228)
+     mwu            (mwheel-up 50 100)
+     mwd            (mwheel-down 50 100)
+     mwl            (mwheel-left 50 100)
+     mwr            (mwheel-right 50 100)
+     ms↑            (movemouse-up 5 1)
+     ms←            (movemouse-left 5 1)
+     ms↓            (movemouse-down 5 1)
+     ms→            (movemouse-right 5 1)
+     ma↑            (movemouse-accel-up 5 750 1 5)
+     ma←            (movemouse-accel-left 5 750 1 5)
+     ma↓            (movemouse-accel-down 5 750 1 5)
+     ma→            (movemouse-accel-right 5 750 1 5)
+     sm             (setmouse 32228 32228)
 )
-
-;; (defchordsv2
-;;   (d f)  S-9    $ct all-released (numpadlayer mouselayer)
-;;   (j k)  S-0    $ct all-released (numpadlayer mouselayer)
-;;   (s d)  S-[    $ct all-released (numpadlayer mouselayer)
-;;   (k l)  S-]    $ct all-released (numpadlayer mouselayer)
-;;   (s f)  [      $ct all-released (numpadlayer mouselayer)
-;;   (j l)  ]      $ct all-released (numpadlayer mouselayer)
-;;   (e f)  -      $ct all-released (numpadlayer mouselayer)
-;;   (j i)  =      $ct all-released (numpadlayer mouselayer)
-;; )

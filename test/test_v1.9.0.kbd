@@ -1,0 +1,98 @@
+(defcfg
+  process-unmapped-keys no
+  concurrent-tap-hold yes
+)
+
+;; 1. lbr과 rbr 규칙만 defoverrides에 정의
+(defoverrides
+  ;; rbr 기능 (] 키) -> f16 사용
+  (lsft f16) (lmet lctl rght)
+  (rsft f16) (lmet lctl rght)
+  (f16)      (lctl tab)
+
+  ;; lbr 기능 ([ 키) -> f17 사용
+  (lsft f17) (lmet lctl left)
+  (rsft f17) (lmet lctl left)
+  (f17)      (lctl lsft tab)
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft         up
+  lctl lmet lalt         spc            ralt rmet menu rctl      left down rght
+)
+
+(deflayer base
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  lctl a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft         up
+  lctl lmet lalt         @spfn            ralt rmet menu rctl      left down rght
+)
+
+;; 2. lbr, rbr 위치만 유령 키로 변경하고, qot는 그대로 둠
+(deflayer spacefnlayer
+  @lck f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
+  _    @prt del  esc  bspc tab  ins  pgup up   pgdn @qck f17  f16  del
+  _    =    -    [    ]    grv  home left down rght end  @qot _
+  _    @rat @num mlft mrgt brk  spc  mute vold volu menu _         @ma↑
+  _    _    _              _              _    _    _    _         @ma← @ma↓ @ma→
+)
+
+(deflayer numpadlayer
+  _    _    _    _    _    _    _    kp7  kp8  kp9  kp0  kp-  _    _
+  _    _    _    _    _    _    _    kp4  kp5  kp6  kp+  _    _    _
+  _    _    _    _    _    _    _    kp1  kp2  kp3  kp* _    _
+  _    _    _    _    _    _    _    kp0  ,    .    kp/  _          _
+  _    _    _              _              _    _    _    _         _    _    _
+)
+
+(deflayer mouselayer
+  _    _    _    _    _    _    _    _    mmid _    _    _    _    _
+  _    _    _    _    _    _    _    mlft @ma↑ mrgt _    _    _    _
+  _    _    _    _    _    _    mbck @ma← @ma↓ @ma→ mfwd _    _
+  _    _    _    _    _    _    @mwu @mwd @mwl @mwr @sm  _          _
+  _    _    _              _              _    _    _    _         _    _    _
+)
+
+(defvar
+  tap-repress-timeout  150
+  hold-timeout         150
+  tt                   $tap-repress-timeout
+  ht                   $hold-timeout
+)
+
+(defalias
+  spfn    (tap-hold-press $tt $ht _ (layer-while-held spacefnlayer))
+  num     (tap-hold-press $tt $ht _ (layer-while-held numpadlayer))
+  rat     (tap-hold-press $tt $ht _ (layer-while-held mouselayer))
+)
+
+;; 3. defoverrides로 처리된 별칭들만 삭제하고, qot 관련 별칭은 남김
+(defalias
+  cpy     C-ins
+  pst     S-ins
+  lwd     M-C-left
+  ltb     C-S-tab
+  qck     M-tab
+  wrd     (macro C-left C-S-rght)
+  row     (macro home S-end)
+  prt     M-S-s
+  lbr     (fork @ltb @lwd (lsft rsft))
+  qot     (fork @wrd @row (lsft rsft))
+  lck     (fork caps slck (lsft rsft))
+)
+
+(defalias
+  mwu     (mwheel-up 50 120)
+  mwd     (mwheel-down 50 120)
+  mwl     (mwheel-left 50 120)
+  mwr     (mwheel-right 50 120)
+  ma↑     (movemouse-accel-up 1 1000 1 5)
+  ma←     (movemouse-accel-left 1 1000 1 5)
+  ma↓     (movemouse-accel-down 1 1000 1 5)
+  ma→     (movemouse-accel-right 1 1000 1 5)
+  sm      (setmouse 32228 32228)
+)
