@@ -13,14 +13,14 @@
      tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
      lctl a    s    d    f    g    h    j    k    l    ;    '    ret
      lsft z    x    c    v    b    n    m    ,    .    /    rsft      up
-     lctl lmet lalt           @spfn          ralt rmet @pass     left down rght
+     lctl lmet lalt           @spfn          ralt rmet rctl      left down rght
 )
 
 (deflayer spacefnlayer
      _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
-     _    @prt del  esc  bspc tab  ins  pgup up   pgdn @qck @ltb @rtb del
+     @lck @prt del  esc  bspc tab  ins  pgup up   pgdn @qck @ltb @rtb del
      _    =    -    [    ]    grv  home left down rght end  @wrd _
-     _    @lck mrgt mmid mlft brk  spc  mute vold volu menu _         @ma↑
+     _    @num mrgt mmid mlft brk  spc  mute vold volu menu _         @ma↑
      _    _    _              _              _    _    @pass     @ma← @ma↓ @ma→
 )
 
@@ -29,14 +29,6 @@
      _    _    _    _    _    _    _    kp4  kp5  kp6  kp+  _    _    _
      _    _    _    _    _    _    _    kp1  kp2  kp3  kp*  _    _
      _    _    _    _    _    _    _    kp0  ,    .    kp/  _         _
-     _    _    _              _              _    _    @pass     _    _    _
-)
-
-(deflayer mouselayer
-     _    _    _    _    _    _    _    _    _    _    _    mwd  mwu  _
-     _    _    _    _    _    _    _    _    _    mfwd mlft @ma↑ mrgt mmid
-     _    _    _    _    _    _    _    _    _    mbck @ma← @ma↓ @ma→
-     _    _    _    _    _    _    _    _    mwl  mwr  @sm  _         _
      _    _    _              _              _    _    @pass     _    _    _
 )
 
@@ -58,21 +50,18 @@
 (defalias
      spfn           (tap-hold $tt $ht _ (layer-while-held spacefnlayer))
      num            (tap-hold $tt $ht _ (layer-while-held numpadlayer))
-     mos            (tap-hold $tt $ht _ (layer-while-held mouselayer))
      pass           (tap-hold $tt $ht _ (layer-while-held emptylayer))
 )
 
 (defalias
-     cpy            C-ins
-     pst            S-ins
-     lwd            M-C-left
-     rwd            M-C-rght
-     ltb            C-S-tab
-     rtb            C-tab
-     qck            M-tab
-     prt            M-S-s
-     wrd            (macro C-left C-S-rght)
-     row            (macro home S-end)
+     cpy            C-ins                         ;;Copy (works in terminal)
+     pst            S-ins                         ;;Paste (works in terminal)
+     ltb            C-S-tab                       ;;Previous Tab
+     rtb            C-tab                         ;;Next Tab
+     qck            M-tab                         ;;Quick Panel / Task View
+     prt            M-S-s                         ;;Print Screen / Screen Capture
+     wrd            (macro C-left C-S-rght)       ;;Select current Word
+     row            (macro home S-end)            ;;Select current Row
      qot            (fork @wrd @row (lsft rsft))
      lck            (fork caps slck (lsft rsft))
 )
@@ -82,10 +71,6 @@
      mwd            (mwheel-down 50 100)
      mwl            (mwheel-left 50 100)
      mwr            (mwheel-right 50 100)
-     ms↑            (movemouse-up 5 1)
-     ms←            (movemouse-left 5 1)
-     ms↓            (movemouse-down 5 1)
-     ms→            (movemouse-right 5 1)
      ma↑            (movemouse-accel-up 5 750 1 5)
      ma←            (movemouse-accel-left 5 750 1 5)
      ma↓            (movemouse-accel-down 5 750 1 5)
