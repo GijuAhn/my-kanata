@@ -18,10 +18,10 @@
 
 (deflayer spacefnlayer
      _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
-     @lck @prt del  esc  bspc tab  ins  pgup up   pgdn @qck @ltb @rtb del
-     _    =    -    [    ]    grv  home left down rght end  @wrd _
-     _    @num mrgt mmid mlft brk  spc  mute vold volu menu _         @ma↑
-     _    _    _              _              _    _    @pass     @ma← @ma↓ @ma→
+     @nuk @snp del  esc  bspc tab  ins  pgup up   pgdn @pnl @ltw @rtw del
+     _    =    -    [    ]    grv  home left down rght end  @qot _
+     _    @sym mrgt mmid mlft brk  spc  mute vold volu menu _         @ma↑
+     _    _    _              _              _    _    _         @ma← @ma↓ @ma→
 )
 
 (deflayer numpadlayer
@@ -29,7 +29,15 @@
      _    _    _    _    _    _    _    kp4  kp5  kp6  kp+  _    _    _
      _    _    _    _    _    _    _    kp1  kp2  kp3  kp*  _    _
      _    _    _    _    _    _    _    kp0  ,    .    kp/  _         _
-     _    _    _              _              _    _    @pass     _    _    _
+     _    _    _              _              _    _    _         _    _    _
+)
+
+(deflayer symbollayer
+     _    _    _    _    _    _    _    _    _    _    _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    _         _
+     _    _    _              _              _    _    _         _    _    _
 )
 
 (deflayer emptylayer
@@ -48,32 +56,31 @@
 )
 
 (defalias
-     spfn           (tap-hold $tt $ht _ (layer-while-held spacefnlayer))
-     num            (tap-hold $tt $ht _ (layer-while-held numpadlayer))
-     pass           (tap-hold $tt $ht _ (layer-while-held emptylayer))
-)
-
-(defalias
      cpy            C-ins                         ;;Copy (works in terminal)
      pst            S-ins                         ;;Paste (works in terminal)
-     ltb            C-S-tab                       ;;Previous Tab
+     ltb            C-S-tab                       ;;Prev Tab
      rtb            C-tab                         ;;Next Tab
-     qck            M-tab                         ;;Quick Panel / Task View
-     prt            M-S-s                         ;;Print Screen / Screen Capture
+     lwd            M-C-left                      ;;Prev Desktop
+     rwd            M-C-rght                      ;;Next Desktop
+     pnl            M-tab                         ;;Quick Panel / Task View
+     snp            M-S-s                         ;;Snap / Print Screen
      wrd            (macro C-left C-S-rght)       ;;Select current Word
      row            (macro home S-end)            ;;Select current Row
-     qot            (fork @wrd @row (lsft rsft))
-     lck            (fork caps slck (lsft rsft))
+     lck            (fork caps slck (lsft rsft))  ;;Caps Lock, (Shifted) Scroll Lock
 )
 
 (defalias
-     mwu            (mwheel-up 50 100)
-     mwd            (mwheel-down 50 100)
-     mwl            (mwheel-left 50 100)
-     mwr            (mwheel-right 50 100)
+     spfn           (tap-hold $tt $ht _ (layer-while-held spacefnlayer))
+     sym            (tap-hold $tt $ht _ (layer-while-held symbollayer))
+     nuk            (tap-hold $tt $ht @lck (layer-while-held numpadlayer))
+     qot            (tap-hold $tt $ht @wrd @row)
+     ltw            (tap-hold $tt $ht @ltb @lwd)
+     rtw            (tap-hold $tt $ht @rtb @rwd)
+)
+
+(defalias
      ma↑            (movemouse-accel-up 5 750 1 5)
      ma←            (movemouse-accel-left 5 750 1 5)
      ma↓            (movemouse-accel-down 5 750 1 5)
      ma→            (movemouse-accel-right 5 750 1 5)
-     sm             (setmouse 32228 32228)
 )
