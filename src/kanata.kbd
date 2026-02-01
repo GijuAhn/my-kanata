@@ -1,48 +1,48 @@
 (defcfg process-unmapped-keys no)
 
 (defsrc
-     grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-     tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+     grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc ins
+     tab  q    w    e    r    t    y    u    i    o    p    [    ]    \    del
      caps a    s    d    f    g    h    j    k    l    ;    '    ret
      lsft z    x    c    v    b    n    m    ,    .    /    rsft      up
      lctl lmet lalt           spc            ralt rmet rctl      left down rght
 )
 
 (deflayer base
-     grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-     tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+     grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc @row
+     tab  q    w    e    r    t    y    u    i    o    p    [    ]    \    del
      lctl a    s    d    f    g    h    j    k    l    ;    '    ret
      lsft z    x    c    v    b    n    m    ,    .    /    rsft      up
      lctl lmet lalt           @spfn          ralt rmet rctl      left down rght
 )
 
 (deflayer spacefnlayer
-     _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
-     @nuk @snp del  esc  bspc tab  ins  pgup up   pgdn @pnl @ltw @rtw del
-     _    =    -    [    ]    grv  home left down rght end  @qot _
-     _    @sym mrgt mmid mlft brk  spc  mute vold volu menu _         @ma↑
-     _    _    _              _              _    _    _         @ma← @ma↓ @ma→
+     _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _    _
+     _    _    del  esc  bspc tab  ins  pgup up   pgdn _    @ltw @rtw del  _
+     _    lalt lsft [    ]    grv  home left down rght end  _    _
+     _    _    mrgt mmid mlft brk  spc  mute vold volu menu _         @ma↑
+     _    _    _              _              _    caps _         @ma← @ma↓ @ma→
 )
 
 (deflayer numpadlayer
-     _    _    _    _    _    _    _    kp7  kp8  kp9  kp0  kp-  _    _
-     _    _    _    _    _    _    _    kp4  kp5  kp6  kp+  _    _    _
+     _    _    _    _    _    _    _    kp7  kp8  kp9  kp0  kp-  _    _    _
+     _    _    _    _    _    _    _    kp4  kp5  kp6  kp+  _    _    _    _
      _    _    _    _    _    _    _    kp1  kp2  kp3  kp*  _    _
      _    _    _    _    _    _    _    kp0  ,    .    kp/  _         _
      _    _    _              _              _    _    _         _    _    _
 )
 
 (deflayer symbollayer
-     _    _    _    _    _    _    _    _    _    _    _    _    _    _
-     _    _    _    _    _    _    _    _    _    _    _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
      _    _    _    _    _    _    _    _    _    _    _    _    _
      _    _    _    _    _    _    _    _    _    _    _    _         _
      _    _    _              _              _    _    _         _    _    _
 )
 
 (deflayer emptylayer
-     _    _    _    _    _    _    _    _    _    _    _    _    _    _
-     _    _    _    _    _    _    _    _    _    _    _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
      _    _    _    _    _    _    _    _    _    _    _    _    _
      _    _    _    _    _    _    _    _    _    _    _    _         _
      _    _    _              _              _    _    _         _    _    _
@@ -62,6 +62,8 @@
      rtb            C-tab                         ;;Next Tab
      lwd            M-C-left                      ;;Prev Desktop
      rwd            M-C-rght                      ;;Next Desktop
+     nap            A-esc                         ;;Next App
+     pap            A-S-esc                       ;;Prev App
      pnl            M-tab                         ;;Quick Panel / Task View
      snp            M-S-s                         ;;Snap / Print Screen
      wrd            (macro C-left C-S-rght)       ;;Select current Word
