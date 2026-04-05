@@ -18,9 +18,9 @@
 
 (deflayer spacefnlayer
      _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _    _
-     _    _    del  esc  bspc tab  ins  pgup up   pgdn _    @ltw @rtw del  _
-     _    lalt lsft [    ]    grv  home left down rght end  _    _
-     _    _    mrgt mmid mlft brk  spc  mute vold volu menu _         @ma↑
+     _    esc  del  ret  bspc tab  ins  pgup up   pgdn brk  @ltw @rtw _    _
+     @osc @osa @osg [    ]    @row home left down rght end  _    _
+     @oss mrgt mmid mlft _    spc  =    -    vold volu mute @oss      @ma↑
      _    _    _              _              _    caps _         @ma← @ma↓ @ma→
 )
 
@@ -58,23 +58,25 @@
 (defalias
      cpy            C-ins                         ;;Copy (works in terminal)
      pst            S-ins                         ;;Paste (works in terminal)
-     ltb            C-S-tab                       ;;Prev Tab
      rtb            C-tab                         ;;Next Tab
-     lwd            M-C-left                      ;;Prev Desktop
+     ltb            C-S-tab                       ;;Prev Tab
      rwd            M-C-rght                      ;;Next Desktop
+     lwd            M-C-left                      ;;Prev Desktop
      nap            A-esc                         ;;Next App
      pap            A-S-esc                       ;;Prev App
      pnl            M-tab                         ;;Quick Panel / Task View
-     snp            M-S-s                         ;;Snap / Print Screen
+     snp            M-S-s                         ;;Capture Screen / Print Screen
      wrd            (macro C-left C-S-rght)       ;;Select current Word
-     row            (macro home S-end)            ;;Select current Row
-     lck            (fork caps slck (lsft rsft))  ;;Caps Lock, (Shifted) Scroll Lock
+     row            (macro home S-end)            ;;Select current Line(Row)
+     osc            (one-shot-press 750 lctl)     ;;One Shot Ctrl (750ms timeout)
+     oss            (one-shot-press 750 lsft)     ;;One Shot Shift (750ms timeout)
+     osa            (one-shot-press 750 lalt)     ;;One Shot Alt (750ms timeout)
+     osg            (one-shot-press 750 lmet)     ;;One Shot GUI (750ms timeout)
 )
 
 (defalias
      spfn           (tap-hold $tt $ht _ (layer-while-held spacefnlayer))
      sym            (tap-hold $tt $ht _ (layer-while-held symbollayer))
-     nuk            (tap-hold $tt $ht @lck (layer-while-held numpadlayer))
      qot            (tap-hold $tt $ht @wrd @row)
      ltw            (tap-hold $tt $ht @ltb @lwd)
      rtw            (tap-hold $tt $ht @rtb @rwd)
@@ -85,4 +87,9 @@
      ma←            (movemouse-accel-left 5 750 1 5)
      ma↓            (movemouse-accel-down 5 750 1 5)
      ma→            (movemouse-accel-right 5 750 1 5)
+)
+
+(defoverrides
+     (lsft caps)    (slck)    ;;Shift+capslock => scroll lock
+     (lsft mute)    (menu)    ;;Shift+mute => context menu
 )
