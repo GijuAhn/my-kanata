@@ -64,12 +64,12 @@ blank keys are transparent
 | /(?)      | Mute / Menu                        |
 
 ### **Combos**
-| keys  | action      |
-| ----- | ----------- |
-| z + x | Ctrl + z    |
-| x + c | Ctrl + x    |
-| c + v | Ctrl + c    |
-| v + b | Ctrl + v    |
-| m + , | Volume Down |
-| m + . | Volume Up   |
-| , + . | Mute        |
+| keys        | action      |
+| ----------- | ----------- |
+| z + x       | Ctrl + z    |
+| x + c       | Ctrl + x    |
+| c + v       | Ctrl + c    |
+| v + b       | Ctrl + v    |
+| m + ,(<)    | Volume Down |
+| m + .(>)    | Volume Up   |
+| ,(<) + .(>) | Mute        |
