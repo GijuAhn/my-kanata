@@ -73,3 +73,6 @@ blank keys are transparent
 | m + ,(<)    | Volume Down |
 | m + .(>)    | Volume Up   |
 | ,(<) + .(>) | Mute        |
+
+### **Silakka54 Keymap-drawer**
+[keymap-drawer](https://caksoylar.github.io/keymap-drawer?keymap_yaml=H4sIAAAAAAACA5WU207bQBCG75F4h6mlCihDG6-dQFz1giYYaB2gOVBOKTLBkChObGxHFUJ5jb5NX6ZP0pldJ3EjuxE342T3m8P-Ozu--xxMEmt9DeBpNLwdes93gRvdWxAPfHc4dMsmb_mSuh27I88CZ__ytNNeX6NFL4qla_3All-AHbg-iHsIOoJAMBBMhDJCBWEXYQ-hilBC-ByHve7coe3eIXxD-I5wgNBEaCNcInQQjhFOEc4Q6p6_4GtJ5CPsI7RoA8FGOEQ4QviC8BXBQdA-ahRqnHjRwuklsWBjcwOhb0GrP3hIpghXCBcINYRzKgnhBKFBzkjO2ns2H8hIv62s3yKmczgZUMJ9P1FcK3R7niQdfaqWmnIzu9I-3HTEllqbFSJJdSxe5l8qjYxojxfi_vn1m05M6tokr0362iSwTQrbJLFNGtsksl1lhnQmurvsyr66SPVRV0GK8xUcj2MvomrPHjshyR_yr_qYrDuJvaVg6R3w4aQI2jUL1iXToLxHwYgcHO-BtuvBT4rRHDz2E056vxRISkBeVFFDl3upScXUPnHgHW1WKXUC5Q3DvMNJ85I8h9Slfc-_ny7_m1HS76TTWNK15vqU4SxKWj3-E8bOkOroRT5_TyYj_mg_uJ5dNntsqmxubrTCevKM9pa9TDZlNhU226-M8YaddDaCjcHm3StjzMVd6vr_xdBK2j9K9oLRXaDmwA68hBZc69SXutlFGFqqs3xapBnRnWYgwSNCrIB06my9oiA5V3IhandRWgXRO9HLCpI9lFsT9a7QV0H00sSuglRP5lEGjz9jFSXoxYq9tHT1IHODkVaGWImZlNOc5SxAeCSnV3Me-Py8C7HyHONZkIuZC6wxSbyC6umQRnpInhvbVwUcjS6jmuEuCji6b7OU4WoF1dFtmnqGOy-IR4c1Uk20Da3gpkQGku99Tv0FibGD2EQHAAA%3D)
