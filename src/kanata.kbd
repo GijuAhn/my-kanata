@@ -1,4 +1,7 @@
-(defcfg process-unmapped-keys no)
+(defcfg
+     process-unmapped-keys no
+     concurrent-tap-hold yes
+)
 
 (defsrc
      grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc ins
@@ -20,7 +23,7 @@
      _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _    _
      _    esc  del  ret  bspc tab  ins  pgup up   pgdn brk  @ltw @rtw _    _
      @osc @osa @osg [    ]    @row home left down rght end  _    _
-     @oss mrgt mmid mlft prnt spc  =    -    vold volu mute @oss      @ma↑
+     @oss mrgt mmid mlft prnt spc  =    -    bspc del  menu @oss      @ma↑
      _    _    _              _              _    caps _         @ma← @ma↓ @ma→
 )
 
@@ -53,6 +56,16 @@
      hold-timeout             150
      tt                       $tap-repress-timeout
      ht                       $hold-timeout
+)
+
+(defchordsv2
+    (z x)           C-z       10        all-released (numpadlayer)
+    (x c)           C-x       10        all-released (numpadlayer)
+    (c v)           C-c       10        all-released (numpadlayer)
+    (v b)           C-v       10        all-released (numpadlayer)
+    (m ,)           vold      10        all-released (numpadlayer)
+    (m .)           volu      10        all-released (numpadlayer)
+    (, .)           mute      10        all-released (numpadlayer)
 )
 
 (defalias

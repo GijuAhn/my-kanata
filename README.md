@@ -26,6 +26,7 @@ blank keys are transparent
 ![spacefn](assets/keyboard-layout-optiwork-spacefn(20260405).png)
 [keyboard-layout-editor-spacefn](https://www.keyboard-layout-editor.com/##@@_a:7%3B&=%E2%96%BD&_c=%2395bfe8&a:4%3B&=F1&=F2&=F3&=F4&=F5&=F6&=F7&=F8&=F9&=F10&=F11&=F12&_c=%23cccccc&a:7&w:2%3B&=%E2%96%BD&_x:0.5%3B&=%E2%96%BD%3B&@_w:1.5%3B&=%E2%96%BD&_c=%23beb098&a:4%3B&=Esc&=Delete&=Enter&=Back%20space&=Tab&=Insert&_c=%236ca29d%3B&=PgUp&=%E2%86%91&=PgDn&_c=%2393c9b7%3B&=Pause%20Break&_c=%23c87e74%3B&=Prev%20tab%2F%2Fapp&=Next%20tab%2F%2Fapp&_c=%23cccccc&a:7&w:1.5%3B&=%E2%96%BD&_x:0.5%3B&=%E2%96%BD%3B&@_c=%23a2a2a6&a:4&w:1.75%3B&=One-Shot%20LCtrl&=One-Shot%20LAlt&=One-Shot%20Super&_c=%23e3e2dd%3B&=%7B%0A%0A%0A%0A%0A%0A%5B&=%7D%0A%0A%0A%0A%0A%0A%5D&_c=%23c87e74%3B&=Select%20Line&_c=%236ca29d%3B&=Home&=%E2%86%90&=%E2%86%93&=%E2%86%92&=End&_c=%23cccccc&a:7%3B&=%E2%96%BD&_w:2.25%3B&=%E2%96%BD%3B&@_c=%23a2a2a6&a:4&w:2.25%3B&=One-Shot%20LShift&_c=%23fad03d%3B&=Mouse%20Right&=Mouse%20Mid&=Mouse%20Left&_c=%2393c9b7%3B&=PrtSc&_c=%23beb098%3B&=Space&_c=%23e3e2dd%3B&=+%0A%0A%0A%0A%0A%0A%2F=&=%2F_%0A%0A%0A%0A%0A%0A-&_c=%239b6482&a:0%3B&=Vol-%0A%0A%0A%0ABksp&=Vol+%0A%0A%0A%0ADelete&=Mute%0A%0A%0A%0AMenu&_c=%23a2a2a6&a:4&w:2.25%3B&=One-Shot%20RShift&_c=%23fad03d%3B&=Mouse%20%E2%86%91%3B&@_c=%23cccccc&a:7&w:1.25%3B&=%E2%96%BD&=%E2%96%BD&_w:1.25%3B&=%E2%96%BD&_w:6.25%3B&=%E2%96%BD&_w:1.25%3B&=%E2%96%BD&_w:1.25%3B&=%E2%96%BD&_c=%2393c9b7&a:4&w:1.25%3B&=ScrollLk%0A%0A%0A%0A%0A%0ACapsLk&_c=%23fad03d%3B&=Mouse%20%E2%86%90&=Mouse%20%E2%86%93&=Mouse%20%E2%86%92)
 
+### **Keymap explanation**
 | key       | action                             |
 | --------- | ---------------------------------- |
 | 1~9,0,-,= | F1~F12                             |
@@ -61,3 +62,14 @@ blank keys are transparent
 | ,(<)      | Volume Down / Backspace            |
 | .(>)      | Volume Up / Delete                 |
 | /(?)      | Mute / Menu                        |
+
+### **Combos**
+| keys  | action      |
+| ----- | ----------- |
+| z + x | Ctrl + z    |
+| x + c | Ctrl + x    |
+| c + v | Ctrl + c    |
+| v + b | Ctrl + v    |
+| m + , | Volume Down |
+| m + . | Volume Up   |
+| , + . | Mute        |
