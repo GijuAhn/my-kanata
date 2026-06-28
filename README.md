@@ -1,79 +1,145 @@
 # my-kanata
 
-> **Improving keyboard usability through intuitive single-layer-based customization.**
+> A single-layer-first keyboard layout optimized for programming and writing.
 
-### **Based on : jtroo's [kanata](https://github.com/jtroo/kanata) project**
+## Why This Layout
 
-### **Releases : [kanata releases](https://github.com/jtroo/kanata/releases)**
+- Mnemonic keys reduce lookup cost.
+- Editing and navigation stay near the home row.
+- Left hand edits. Right hand navigates.
+- Timing-sensitive behavior is limited to `Space` tap-hold and base-layer combos.
 
-### **Config : [kanata.kbd](https://github.com/jtroo/kanata/blob/main/cfg_samples/kanata.kbd)**
+## Quick Map
 
-### **Key list : [mod.rs](https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs)**
+| Area | Behavior |
+| --- | --- |
+| Base typing | Standard QWERTY-style typing, with `CapsLock` mapped to `Left Ctrl` |
+| `Space` tap | Normal Space |
+| `Space` hold | Momentary `SpaceFn` layer |
+| Left-hand `SpaceFn` | Delete, backspace, select line, copy, paste |
+| Right-hand `SpaceFn` | Home, End, arrows, Page Up/Down, app switching |
+| Base combos | Undo, cut, copy, paste, volume control |
+| Safety rule | Base combos are disabled inside `SpaceFn` |
 
-## Single layer layout
+## Files
 
-### **Base Layer**
+| Path | Purpose |
+| --- | --- |
+| `src/kanata.kbd` | Runtime config loaded by Kanata |
+| `assets/kanata_core.kbd` | Core reference copy |
+| `assets/kanata_expand.kbd` | Expanded backup with unused or experimental layers |
 
-CapsLock ⇒ Control
+## Validation
 
-![base](assets/keyboard-layout-optiwork-base(20260405).png)
-[keyboard-layout-editor-base](https://www.keyboard-layout-editor.com/##@@_c=%23768e72&a:0%3B&=Esc%0A%0A%0A%0A~%20%60&_c=%23cccccc&a:4%3B&=!%0A1&=%2F@%0A2&=%23%0A3&=$%0A4&=%25%0A5&=%5E%0A6&=%2F&%0A7&=*%0A8&=(%0A9&=)%0A0&=%2F_%0A-&=+%0A%2F=&_w:2%3B&=Backspace&_x:0.5&c=%23c87e74%3B&=Select%20Line%3B&@_c=%23cccccc&w:1.5%3B&=Tab&=Q&=W&=E&=R&=T&=Y&=U&=I&=O&=P&=%7B%0A%5B&=%7D%0A%5D&_w:1.5%3B&=%7C%0A%5C&_x:0.5%3B&=Delete%3B&@_c=%23768e72&w:1.75%3B&=LCtrl&_c=%23cccccc%3B&=A&=S&=D&=F&=G&=H&=J&=K&=L&=%2F:%0A%2F%3B&=%22%0A'&_w:2.25%3B&=Enter%3B&@_c=%23c87e74&w:2.25%3B&=LShift%0A(&_c=%23cccccc%3B&=Z&=X&=C&=V&=B&=N&=M&=%3C%0A,&=%3E%0A.&=%3F%0A%2F%2F&_c=%23c87e74&w:2.25%3B&=RShift%0A)&_c=%23cccccc%3B&=%E2%86%91%3B&@_w:1.25%3B&=LCtrl&=Super&_w:1.25%3B&=LAlt&_c=%23768e72&w:6.25%3B&=SpaceFn%20Layer&_c=%23c5c7ca&a:0&w:1.25%3B&=RAlt%0A%0A%0A%0A%ED%95%9C%2F%2F%EC%98%81&_w:1.25%3B&=RCtrl%0A%0A%0A%0A%ED%95%9C%EC%9E%90&_c=%23cccccc&a:4&w:1.25%3B&=Menu&=%E2%86%90&=%E2%86%93&=%E2%86%92)
+Validate the runtime config without starting key remapping:
 
-### **SpaceFn Layer**
+```powershell
+src\kanata_windows_tty_winIOv2_x64.exe --check --cfg src\kanata.kbd
+```
 
-blank keys are transparent
+Current result: `config file is valid`.
 
-![spacefn](assets/keyboard-layout-optiwork-spacefn(20260405).png)
-[keyboard-layout-editor-spacefn](https://www.keyboard-layout-editor.com/##@@_a:7%3B&=%E2%96%BD&_c=%2395bfe8&a:4%3B&=F1&=F2&=F3&=F4&=F5&=F6&=F7&=F8&=F9&=F10&=F11&=F12&_c=%23cccccc&a:7&w:2%3B&=%E2%96%BD&_x:0.5%3B&=%E2%96%BD%3B&@_w:1.5%3B&=%E2%96%BD&_c=%23beb098&a:4%3B&=Esc&=Delete&=Enter&=Back%20space&=Tab&=Insert&_c=%236ca29d%3B&=PgUp&=%E2%86%91&=PgDn&_c=%2393c9b7%3B&=Pause%20Break&_c=%23c87e74%3B&=Prev%20tab%2F%2Fapp&=Next%20tab%2F%2Fapp&_c=%23cccccc&a:7&w:1.5%3B&=%E2%96%BD&_x:0.5%3B&=%E2%96%BD%3B&@_c=%23a2a2a6&a:4&w:1.75%3B&=One-Shot%20LCtrl&=One-Shot%20LAlt&=One-Shot%20Super&_c=%23e3e2dd%3B&=%7B%0A%0A%0A%0A%0A%0A%5B&=%7D%0A%0A%0A%0A%0A%0A%5D&_c=%23c87e74%3B&=Select%20Line&_c=%236ca29d%3B&=Home&=%E2%86%90&=%E2%86%93&=%E2%86%92&=End&_c=%23cccccc&a:7%3B&=%E2%96%BD&_w:2.25%3B&=%E2%96%BD%3B&@_c=%23a2a2a6&a:4&w:2.25%3B&=One-Shot%20LShift&_c=%23fad03d%3B&=Mouse%20Right&=Mouse%20Mid&=Mouse%20Left&_c=%2393c9b7%3B&=PrtSc&_c=%23beb098%3B&=Space&_c=%23e3e2dd%3B&=+%0A%0A%0A%0A%0A%0A%2F=&=%2F_%0A%0A%0A%0A%0A%0A-&_c=%239b6482&a:0%3B&=Vol-%0A%0A%0A%0ABksp&=Vol+%0A%0A%0A%0ADelete&=Mute%0A%0A%0A%0AMenu&_c=%23a2a2a6&a:4&w:2.25%3B&=One-Shot%20RShift&_c=%23fad03d%3B&=Mouse%20%E2%86%91%3B&@_c=%23cccccc&a:7&w:1.25%3B&=%E2%96%BD&=%E2%96%BD&_w:1.25%3B&=%E2%96%BD&_w:6.25%3B&=%E2%96%BD&_w:1.25%3B&=%E2%96%BD&_w:1.25%3B&=%E2%96%BD&_c=%2393c9b7&a:4&w:1.25%3B&=ScrollLk%0A%0A%0A%0A%0A%0ACapsLk&_c=%23fad03d%3B&=Mouse%20%E2%86%90&=Mouse%20%E2%86%93&=Mouse%20%E2%86%92)
+## Diagram Guide
 
-### **Keymap explanation**
-| key       | action                             |
-| --------- | ---------------------------------- |
-| 1~9,0,-,= | F1~F12                             |
-| q         | Escape *'q'uit                     |
-| w         | Delete *'w'ipe                     |
-| e         | Enter  *'e'nter                    |
-| r         | Backspace   *e'r'ase               |
-| t         | Tab     *'t'ab                     |
-| y         | Insert                             |
-| u         | Page Up                            |
-| i         | Up Arrow                           |
-| o         | Page Down                          |
-| p         | Pause Break                        |
-| [         | Previous Tab / App                 |
-| ]         | Next Tab / App                     |
-| a         | One-Shot Left 'A'lt                |
-| s         | One-Shot Left 'S'uper (Window key) |
-| d         | [{                                 |
-| f         | ]}                                 |
-| g         | Get Line                           |
-| h         | Home                               |
-| j         | Left Arrow                         |
-| k         | Down Arrow                         |
-| l         | Right Arrow                        |
-| ;         | End                                |
-| z         | Mouse Right Click                  |
-| x         | Mouse Middle Click                 |
-| c         | Mouse Left Click                   |
-| v         | PrtSc                              |
-| b         | Space *'b'lank                     |
-| n         | =+    *'는'                        |
-| m         | -_    *'m'inus                     |
-| ,(<)      | Volume Down / Backspace            |
-| .(>)      | Volume Up / Delete                 |
-| /(?)      | Mute / Menu                        |
+The diagrams follow a Leopold FC660M-style physical layout.
 
-### **Combos**
-| keys        | action      |
-| ----------- | ----------- |
-| z + x       | Ctrl + z    |
-| x + c       | Ctrl + x    |
-| c + v       | Ctrl + c    |
-| v + b       | Ctrl + v    |
-| m + ,(<)    | Volume Down |
-| m + .(>)    | Volume Up   |
-| ,(<) + .(>) | Mute        |
+## Base Layer
 
-### **Silakka54 Keymap-drawer**
-![Silakka54 Keymap-drawer](assets/Silakka54_v3.3_20260419_keymap-drawer.png)
-[keymap-drawer](https://caksoylar.github.io/keymap-drawer?keymap_yaml=H4sIAAAAAAACA5WU207bQBCG75F4h6mlCihDG6-dQFz1giYYaB2gOVBOKTLBkChObGxHFUJ5jb5NX6ZP0pldJ3EjuxE342T3m8P-Ozu--xxMEmt9DeBpNLwdes93gRvdWxAPfHc4dMsmb_mSuh27I88CZ__ytNNeX6NFL4qla_3All-AHbg-iHsIOoJAMBBMhDJCBWEXYQ-hilBC-ByHve7coe3eIXxD-I5wgNBEaCNcInQQjhFOEc4Q6p6_4GtJ5CPsI7RoA8FGOEQ4QviC8BXBQdA-ahRqnHjRwuklsWBjcwOhb0GrP3hIpghXCBcINYRzKgnhBKFBzkjO2ns2H8hIv62s3yKmczgZUMJ9P1FcK3R7niQdfaqWmnIzu9I-3HTEllqbFSJJdSxe5l8qjYxojxfi_vn1m05M6tokr0362iSwTQrbJLFNGtsksl1lhnQmurvsyr66SPVRV0GK8xUcj2MvomrPHjshyR_yr_qYrDuJvaVg6R3w4aQI2jUL1iXToLxHwYgcHO-BtuvBT4rRHDz2E056vxRISkBeVFFDl3upScXUPnHgHW1WKXUC5Q3DvMNJ85I8h9Slfc-_ny7_m1HS76TTWNK15vqU4SxKWj3-E8bOkOroRT5_TyYj_mg_uJ5dNntsqmxubrTCevKM9pa9TDZlNhU226-M8YaddDaCjcHm3StjzMVd6vr_xdBK2j9K9oLRXaDmwA68hBZc69SXutlFGFqqs3xapBnRnWYgwSNCrIB06my9oiA5V3IhandRWgXRO9HLCpI9lFsT9a7QV0H00sSuglRP5lEGjz9jFSXoxYq9tHT1IHODkVaGWImZlNOc5SxAeCSnV3Me-Py8C7HyHONZkIuZC6wxSbyC6umQRnpInhvbVwUcjS6jmuEuCji6b7OU4WoF1dFtmnqGOy-IR4c1Uk20Da3gpkQGku99Tv0FibGD2EQHAAA%3D)
+The base layer stays plain, with two changes:
+
+- `CapsLock` acts as `Left Ctrl`.
+- The physical `Insert` key selects the current line: `Home`, then `Shift+End`.
+
+```text
++--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------+    +--------+
+| ~      | !      | @      | #      | $      | %      | ^      | &      | *      | (      | )      | _      | +      | Back               |    | Select |
+| `      | 1      | 2      | 3      | 4      | 5      | 6      | 7      | 8      | 9      | 0      | -      | =      | space              |    | Line   |
++--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------+    +--------+
+                                                                                                                                                +--------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+------------+        | Delete |
+| Tab        | Q      | W      | E      | R      | T      | Y      | U      | I      | O      | P      | {      | }      | |          |        |        |
+|            |        |        |        |        |        |        |        |        |        |        | [      | ]      | \          |        +--------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+------------+
++--------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+------------------+
+| Ctrl         | A      | S      | D      | F      | G      | H      | J      | K      | L      | :      | "      | Enter            |
+|              |        |        |        |        |        |        |        |        |        | ;      | '      |                  |
++--------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+------------------+
++------------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+------------------+              +--------+
+| Shift            | Z      | X      | C      | V      | B      | N      | M      | <      | >      | ?      | Shift            |              | Up     |
+|                  |        |        |        |        |        |        |        | ,      | .      | /      |                  |              |        |
++------------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+------------------+              +--------+
++----------+----------+----------+--------------------------------------------------------------+----------+----------+----------+    +--------+--------+--------+
+| Ctrl     | Meta     | Alt      | SpaceFn                                                      | RAlt     | RMeta    | RCtrl    |    | Left   | Down   | Right  |
+|          |          |          | tap Space / hold Fn                                          |          |          |          |    |        |        |        |
++----------+----------+----------+--------------------------------------------------------------+----------+----------+----------+    +--------+--------+--------+
+```
+
+## SpaceFn Layer
+
+Hold `Space` for this layer. Release it to return to base.
+
+```text
++--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------+    +--------+
+| ▽      | F1     | F2     | F3     | F4     | F5     | F6     | F7     | F8     | F9     | F10    | F11    | F12    | ▽                  |    | ▽      |
+|        |        |        |        |        |        |        |        |        |        |        |        |        |                    |    |        |
++--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------+    +--------+
+                                                                                                                                                +--------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+------------+        | ▽      |
+| ▽          | Esc    | [      | Return | ]      | Tab    | Insert | Page   | Up     | Page   | Screen | Prev   | Next   | ▽          |        |        |
+|            |        |        |        |        |        |        | Up     |        | Down   | Shot   | App    | App    |            |        +--------+
++------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+------------+
++--------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+------------------+
+| ▽            | Alt    | Space  | Delete | Back   | Select | Home   | Left   | Down   | Right  | End    | ▽      | ▽                |
+|              |        |        |        | space  | Line   |        |        |        |        |        |        |                  |
++--------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+------------------+
++------------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+------------------+            +--------+
+| ▽                | Mouse  | Mouse  | Copy   | Paste  | Pause  | =      | -      | Ctrl   | Ctrl   | Menu   | ▽                |            | Mouse  |
+|                  | Right  | Left   |        |        | Break  |        |        | Left   | Right  |        |                  |            | Up     |
++------------------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+------------------+            +--------+
++----------+----------+----------+--------------------------------------------------------------+----------+----------+----------+    +--------+--------+--------+
+| ▽        | ▽        | ▽        | ▽                                                            | ▽        | Caps     | ▽        |    | Mouse  | Mouse  | Mouse  |
+|          |          |          |                                                              |          | Lock     |          |    | Left   | Down   | Right  |
++----------+----------+----------+--------------------------------------------------------------+----------+----------+----------+    +--------+--------+--------+
+```
+
+## SpaceFn Key Reference
+
+| Group | Physical keys | `SpaceFn` action |
+| --- | --- | --- |
+| Function keys | `1`..`=` | `F1`..`F12` |
+| Basic control | `Q` / `E` / `T` | Quit(Escape) / Enter / Tab |
+| Brackets | `W` / `R` | `[` / `]` |
+| Insert and screenshot | `Y` / `P` | Insert / PrintScreen: `Win+Shift+S` |
+| Arrow cluster | `I` / `K` / `J` / `L` | Up / Down / Left / Right |
+| Page movement | `U` / `O` | Page Up / Page Down |
+| Line edges | `H` / `;` | Home / End |
+| App switching | `[` / `]` | Previous / next app: `Alt+Shift+Esc` / `Alt+Esc` |
+| Left-hand editing | `D` / `F` / `G` | Delete / Backspace / Select current line |
+| Clipboard | `C` / `V` | Copy / paste via `Ctrl+Insert` / `Shift+Insert` |
+| Modifier and Space | `A` / `S` | Left Alt / Space |
+| Mouse clicks | `Z` / `X` | Mouse right / left click |
+| Symbols and pause | `B` / `N` / `M` | Pause/Break / `=` / `-` |
+| Word movement | `,` / `.` | Ctrl+Left / Ctrl+Right |
+| Menu | `/` | Context Menu |
+| Mouse movement | Arrow keys | Accelerated mouse movement |
+| CapsLock toggle | `Right Ctrl` | CapsLock |
+
+## Base Combos
+
+These combos work on base only. They are disabled inside `SpaceFn`, so fast edits like `Space + C`, `Space + V`, `Space + ,`, and `Space + .` stay deterministic.
+
+| Keys | Action |
+| --- | --- |
+| `Z + X` | Undo: `Ctrl+Z` |
+| `X + C` | Cut: `Ctrl+X` |
+| `C + V` | Copy: `Ctrl+C` |
+| `V + B` | Paste: `Ctrl+V` |
+| `M + ,` | Volume down |
+| `M + .` | Volume up |
+| `, + .` | Mute |
+
+## References
+
+- Kanata project: https://github.com/jtroo/kanata
+- Kanata configuration guide: https://github.com/jtroo/kanata/blob/main/docs/config.adoc
+- Kanata key names source: https://github.com/jtroo/kanata/blob/main/parser/src/keys/mod.rs
