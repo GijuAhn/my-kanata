@@ -7,19 +7,19 @@
 - Mnemonic keys reduce lookup cost.
 - Editing and navigation stay near the home row.
 - Left hand edits. Right hand navigates.
-- Timing-sensitive behavior is limited to `Space` tap-hold and base-layer combos.
+- Timing-sensitive behavior is limited to `Space`/Shift/RAlt tap-hold and base-layer combos.
 
 ## Quick Map
 
-| Area                 | Behavior                                                            |
-| -------------------- | ------------------------------------------------------------------- |
-| Base typing          | Standard QWERTY-style typing, with `CapsLock` mapped to `Left Ctrl` |
-| `Space` tap          | Normal Space                                                        |
-| `Space` hold         | Momentary `SpaceFn` layer                                           |
-| Left-hand `SpaceFn`  | Delete, backspace, select line, copy, paste                         |
-| Right-hand `SpaceFn` | Home, End, arrows, Page Up/Down, app switching                      |
-| Base combos          | Undo, cut, copy, paste, volume control                              |
-| Safety rule          | Base combos are disabled inside `SpaceFn`                           |
+| Area                 | Behavior                                                   |
+| -------------------- | ---------------------------------------------------------- |
+| Base typing          | QWERTY-style typing, with `CapsLock` mapped to `Left Ctrl` |
+| `Space` tap          | Normal Space                                               |
+| `Space` hold         | Momentary `SpaceFn` layer                                  |
+| Left-hand `SpaceFn`  | Delete, backspace, select line, copy, paste                |
+| Right-hand `SpaceFn` | Home, End, arrows, Page Up/Down, app switching             |
+| Base combos          | Undo, cut, copy, paste, volume control                     |
+| Safety rule          | Base combos are disabled inside `SpaceFn`                  |
 
 ## Files
 
@@ -36,10 +36,12 @@ Labels are shortened to keep the README readable on GitHub.
 
 ## Base Layer
 
-The base layer stays plain, with two changes:
+The base layer stays close to QWERTY, with a few tap-hold edits:
 
 - `CapsLock` acts as `Left Ctrl`.
 - The physical `Insert` key {selects the current line}: `Home`, then `Shift+End`.
+- Left/Right Shift tap `(`/`)` and hold as Shift.
+- Right Alt taps as RAlt and holds as Shift.
 
 ```text
 +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-------+ +-----+
@@ -49,13 +51,13 @@ The base layer stays plain, with two changes:
 |  Tab  |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |  \  | | Del |
 +-------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+ +-----+
 +---------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+---------+
-|  Ctrl   |  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |  '  |  Enter  |
+|  LCtrl  |  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |  '  |  Enter  |
 +---------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+---------+
 +-----------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----------+   +-----+
-|   Shift   |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |   Shift   |   | Up  |
+|  LS \'('  |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |  RS \')'  |   | Up  |
 +-----------+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----------+   +-----+
 +-------+-------+-------+-----------------------------+-------+-------+-------+   +-----+-----+-----+
-| Ctrl  | Meta  | Alt   |            SpaceFn          | RAlt  | RMeta | RCtrl |   |Left |Down |Right|
+| LCtrl | LMeta | LAlt  |            SpaceFn          | RA\LS | RMeta | RCtrl |   |Left |Down |Right|
 +-------+-------+-------+-----------------------------+-------+-------+-------+   +-----+-----+-----+
 ```
 

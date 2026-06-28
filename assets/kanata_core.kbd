@@ -15,8 +15,8 @@
      grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc @row
      tab  q    w    e    r    t    y    u    i    o    p    [    ]    \    del
      lctl a    s    d    f    g    h    j    k    l    ;    '    ret
-     lsft z    x    c    v    b    n    m    ,    .    /    rsft      up
-     lctl lmet lalt           @spfn          ralt rmet rctl      left down rght
+     @lsb z    x    c    v    b    n    m    ,    .    /    @rsb      up
+     lctl lmet lalt           @spfn          @als rmet rctl      left down rght
 )
 
 (deflayer spacefnlayer
@@ -56,17 +56,19 @@
 )
 
 (defalias
-     spfn           (tap-hold $tt $ht _ (layer-while-held spacefnlayer))
+     spfn           (tap-hold $tt $ht _    (layer-while-held spacefnlayer))
+     lsb            (tap-hold $tt $ht S-9  lsft)
+     rsb            (tap-hold $tt $ht S-0  rsft)
+     als            (tap-hold $tt $ht ralt lsft)
 )
 
 (defalias
-     ma↑            (movemouse-accel-up 5 750 1 5)
-     ma←            (movemouse-accel-left 5 750 1 5)
-     ma↓            (movemouse-accel-down 5 750 1 5)
+     ma↑            (movemouse-accel-up    5 750 1 5)
+     ma←            (movemouse-accel-left  5 750 1 5)
+     ma↓            (movemouse-accel-down  5 750 1 5)
      ma→            (movemouse-accel-right 5 750 1 5)
 )
 
 (defoverrides
      (lsft caps)    (slck)    ;;Shift+capslock => scroll lock
-     (lsft mute)    (menu)    ;;Shift+mute => context menu
 )
